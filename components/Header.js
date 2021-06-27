@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 
 export default function Header(props) {
-    console.log(props.title)
     const title = "Zishere" + (props.title ? ` | ${props.title}` : "");
     return (
         <header className="sticky top-0 z-50">

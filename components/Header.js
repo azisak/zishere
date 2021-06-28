@@ -1,5 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
+
 
 export default function Header(props) {
     const title = "Zishere" + (props.title ? ` | ${props.title}` : "");
@@ -11,8 +13,12 @@ export default function Header(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="text-cyan text-2xl font-bold flex justify-end pt-4">
-                    <a className="mx-8" href="#">Blog</a>
-                    <a href="#">About</a>
+                <Link href="/blog">
+                    <a className="mx-8">Blog</a>
+                </Link>
+                <Link href="/about">
+                    <a >About</a>
+                </Link>
             </div>
         </header>
     )

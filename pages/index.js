@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Header from '../components/Header'
+import profileImage from "../public/me.jpg"
 
 export default function Home() {
     return (
@@ -8,7 +9,7 @@ export default function Home() {
             <Header/>
             <main className="h-screen flex items-center justify-center">
                 <div className="border-cyan bg-navy border-4 rounded-full p-2 w-64 h-64 mx-8">
-                    <Image alt="owner's profile picture" className="rounded-full" width={500} height={500} src="/me.jpg"></Image>
+                    <Image placeholder="blur" alt="owner's profile picture" className="rounded-full" width={500} height={500} src={profileImage}></Image>
                 </div>
                 <div className="inline-block">
                     <div className="text-xl text-white">Nice to meet you 👋</div>

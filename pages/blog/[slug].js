@@ -2,6 +2,7 @@ import React from 'react'
 import GhostContentAPI from '@tryghost/content-api'
 import { useRouter } from 'next/dist/client/router';
 import moment from 'moment'
+import Header from "../../components/Header"
 
 
 export default function BlogPost(props) {
@@ -12,15 +13,17 @@ export default function BlogPost(props) {
             <div className="text-white">Loading...</div>
         )
     }
-    console.log(props);
     const { post } = props;
     const { title, html, published_at, reading_time} = post;
     const publishedDate = moment(published_at).format("ddd, MMMM D, YYYY")
     return (
-        <div className="border-2 border-cyan">
-            <h1 className="text-4xl">{title}</h1>
-            <span>{publishedDate} - {reading_time}</span>
-            <div className="prose prose-green text-white max-w-none" dangerouslySetInnerHTML={{__html:html}}/>
+        <div>
+            <Header title={title} />
+            <main className="w-1/2 mx-auto">
+                <h1 className="text-4xl">{title}</h1>
+                <span>{publishedDate} - {reading_time}</span>
+                <div className="prose prose-green text-white max-w-none" dangerouslySetInnerHTML={{__html:html}}/>
+            </main>
         </div>
     )
 }
@@ -51,7 +54,6 @@ export function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const post = await getPost(params.slug);
-    console.log(post)
     return {
         props: {
             post

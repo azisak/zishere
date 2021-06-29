@@ -2,36 +2,37 @@ import React from 'react'
 import moment from 'moment';
 import Link from "next/link";
 import GhostContentAPI from '@tryghost/content-api'
-
+import Header from "../../components/Header"
 
 export default function Blog(props) {
     const { posts } = props;
-    console.log(posts);
     
     const postElements = transformPosts(posts);
     return (
         <div className="text-white">
-            <h1 className="text-5xl">Blogs</h1>
-            <div className="border-2 border-cyan">
-                {postElements}
-            </div>
+            <Header title="blog" />
+            <main className="w-2/3 mx-auto mt-8">
+                <h1 className="text-5xl mb-8">Blogs</h1>
+                <div className="">
+                    {postElements}
+                </div>
+            </main>
         </div>
     )
 }
 
 function transformPosts(rawPosts) {
-    console.log(typeof(rawPosts), rawPosts)
     return rawPosts.map((post, idx) => {
         const { title, slug, excerpt, reading_time, published_at } = post;
         const publishedDate = moment(published_at).format("ddd, MMMM D, YYYY");
         return (
-            <div key={idx} className="mb-4 last:mb-0">
-                <h3 className="text-3xl">
+            <div key={idx} className="mb-8 last:mb-0">
+                <h3 className="text-3xl text-cyan">
                     <Link href="/blog/[slug]" as={`/blog/${slug}`}>
                         {title}
                     </Link>
                 </h3>
-                <span>{publishedDate} - {reading_time} min read</span>
+                <span className="text-gray-300">{publishedDate} - {reading_time} min read</span>
                 <p className="text-xl">{excerpt}</p>
             </div>
         );

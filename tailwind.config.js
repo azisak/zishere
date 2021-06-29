@@ -1,7 +1,13 @@
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
+    nightwind: {
+      colors: {
+        white: '#0a192f'
+      },
+      typography: true,
+    },
     extend: {
       colors: {
         cyan: {
@@ -10,7 +16,7 @@ module.exports = {
         navy: {
           DEFAULT: '#0a192f'
         }
-      }
+      },
     }
   },
   variants: {
@@ -18,7 +24,8 @@ module.exports = {
       margin: ['first', 'last']
     },
   },
+  plugins: [require("nightwind"), require('@tailwindcss/typography')],
   corePlugins: {
     preflight: true,
-   }
+  }
 }

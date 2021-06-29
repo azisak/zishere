@@ -10,7 +10,7 @@ export default function BlogPost(props) {
 
     if (router.isFallback) {
         return (
-            <div className="text-white">Loading...</div>
+            <div className="">Loading...</div>
         )
     }
     const { post } = props;
@@ -19,10 +19,10 @@ export default function BlogPost(props) {
     return (
         <div>
             <Header title={title} />
-            <main className="w-1/2 mx-auto">
-                <h1 className="text-4xl">{title}</h1>
+            <main className="mt-8 w-1/2 mx-auto prose max-w-none">
+                <h1 className="">{title}</h1>
                 <span>{publishedDate} - {reading_time}</span>
-                <div className="prose prose-green text-white max-w-none" dangerouslySetInnerHTML={{__html:html}}/>
+                <div className="" dangerouslySetInnerHTML={{__html:html}}/>
             </main>
         </div>
     )

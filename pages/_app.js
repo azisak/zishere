@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider
       attribute="class"
       storageKey="nightwind-mode"
-      defaultTheme="system" // default "light"
+      defaultTheme="dark" 
     >
       <div className="container mx-auto">
         <Component {...pageProps} />
